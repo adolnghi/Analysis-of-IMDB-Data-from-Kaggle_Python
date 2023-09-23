@@ -1,0 +1,47 @@
+In this project, I used PySpark from the Spark cluster on AWS EMR to install, load the IMDB's datasets from Kraggle in order to have an in-depth analysis on the data with the provision of some graphs.
+
+In order to do that, I created the cluster in EMR, then created the notebook in the cluster to connect to Jupiter Notebook.
+
+Then, I installed two packages which were pandas==1.0.3 for coding and matplotlib==3.2.1 for graphs and imported all the libraries needed (pandas, numpy, matplotlib.pylot) and all funcitons needed split, col, explode, countDistinct, mean, count from pyspark,sql.functions.
+
+Next, I loaded all the IMDB's datasets from S3 provided into a Spark dataframe object called actors, genres, movie_actors and movie_ratings and started exploring the data.
+
+
+First, I wanted to check all the variables for each table and see the variables' types and if they are nullable or not.
+
+Starting with "Actors" table, I used printSchema to see all the available variables, the variables' types and if they are nullable or not. Then I ran a table with 4 specific variables: primary Name, birth Year, death Year and known For Titles for only the first 5 rows.
+
+Then, I explored the data in "Genres" table where I showed a table of three variables: title Type, primary Title and genres for the first 10 rows. I also checked to see how many unique categories are there in the table as well as displayed the schema for all available variables.
+
+For "Movie Actors" table, I did the same thing: displayed the schema and showed the first 10 rows for 5 variables: tconst, ordering, nconst, category, job and characters.
+
+For "Movie Ratings" table, I displayed the schema and showed the first 10 rows of 3 variables: tconst, averageRating and numVotes.
+
+Then I showed the overview of data by showing the total rows and columns for each table.
+
+
+Second, I analyed these four tables.
+
+I broke out the genres in "Genres" table to see the total unique genres, what unique genres are available by ensuring to remove all the NA. I used explode function to seperate multiple genres in one row into seperate rows, withColumn function to change the type of the variable, countDistinc funtion to count the unique genres and distinct().show() function to remove duplicate genres.
+
+Then I analysed to see the top genres by movies and by average rating. I also joined all tables together to anaylze the data better along with filter, sort, groupBy functions and showed the top genres by hotizontal bar chart.
+
+
+Third, I analyzed to look for the total unique job categories as well as the list of the unique job categories available. I also wanted to see top job categories and showed them with bar chart.
+
+
+Fourth, I used the data from join tables from four tables to answer four questions that were asked using joining tables to get the data, filtering variables to get the selected/conditional data and rejoining them to get the answers that I wanted. I also used groupBy and count functions.
+
+
+Finally, I added 3 questions on my own to analyze the data further. You would see it in the Project2_Analysis.pdf file.
+
+
+
+
+
+
+
+
+
+
+
